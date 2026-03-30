@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  background: #ddd;
+}
+
+.links button {
+  margin-right: 10px;
+  padding: 8px 12px;
+}
+
+.active {
+  background-color: #333;
+  color: white;
+}

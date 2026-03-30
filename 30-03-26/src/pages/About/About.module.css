@@ -1,0 +1,51 @@
+body{
+    background-color: #111;
+}
+.profileCard{
+    width: 380px;
+    background-color: #111;
+    padding: 45px 35px;
+    border-radius: 22px;
+    text-align: center;
+    color: #fff;
+    font-family: sans-serif;
+    border: 1px solid rgba(255,255,255,0.07);
+    margin:200px auto;
+    box-shadow: 10px 20px 100px rgba(66,66,255);
+}
+.avatar{
+    width: 180px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 3px solid rgba(255,255,255,0.18);
+}
+.name{
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.role{
+    font-size: 20px;
+    font-weight: 400;
+    color: #3fa9f5;
+    margin-bottom: 25px;  
+}
+.bio{
+    font-size: 16px;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: 30px;
+}
+.links{
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+}
+.links a{
+    color: #3fa9f5;
+    font-size: 18px;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
