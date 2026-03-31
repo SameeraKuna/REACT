@@ -1,0 +1,46 @@
+.light {
+  font-family: Arial;
+  min-height: 100vh;
+  background-color: white;
+  color: black;
+}
+
+.dark {
+  background-color: #121212;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: teal;
+  color: white;
+}
+
+.nav-links button {
+  margin-left: 10px;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 50px auto;
+}
+
+.form input {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.form button {
+  padding: 10px;
+}
+
+.error {
+  color: red;
+}
