@@ -1,0 +1,98 @@
+import { useState } from "react";
+ 
+const initialData = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  city: "",
+  country: "",
+};
+ 
+const Form = () => {
+  const [formData, setFormData] = useState(initialData);
+  const [formErrors, setFormErrors] = useState(initialData);
+ 
+  const handleInputChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+ 
+  const handleSubmit = () => {
+    // Accessing through each state value
+    // if (formData.firstName.length === 0) {
+    //   setFormErrors((prev) => ({
+    //     ...prev,
+    //     firstName: "First Name is required",
+    //   }));
+    //   return;
+    // }
+ 
+    Object.entries(formData).map(([key, value]) => (
+      (value.length === 0) ?
+       setFormErrors(prev => ({
+        ...prev,
+        [key]: `${key} is required`
+       }))
+       : null
+     
+    ))
+ 
+    // setFormData(initialData);
+  };
+console.log(formErrors);
+ 
+  return (
+    <div>
+      <div className="formField">
+        <label>First Name</label>
+        <input
+          name="firstName"
+          value={formData.firstName}
+          onChange={handleInputChange}
+        />
+        <p className="error">{formErrors.firstName}</p>
+      </div>
+      <div className="formField">
+        <label>Last Name</label>
+        <input
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleInputChange}
+        />
+        <p className="error">{formErrors.lastName}</p>
+      </div>
+      <div className="formField">
+        <label>Email</label>
+        <input
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+        />
+        <p className="error">{formErrors.email}</p>
+      </div>
+      <div className="formField">
+        <label>City</label>
+        <input name="city" value={formData.city} onChange={handleInputChange} />
+        <p className="error">{formErrors.city}</p>
+      </div>
+      <div className="formField">
+        <label>Country</label>
+        <input
+          name="country"
+          value={formData.country}
+          onChange={handleInputChange}
+        />
+        <p className="error">{formErrors.country}</p>
+      </div>
+ 
+      <button onClick={handleSubmit}>Register</button>
+    </div>
+  );
+};
+ 
+export default Form;
+ 
+ 
+ 
