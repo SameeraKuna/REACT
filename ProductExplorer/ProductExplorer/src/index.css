@@ -1,0 +1,290 @@
+/* ------------------ */
+/* CSS Variables */
+/* ------------------ */
+
+:root {
+  --bg-light: #f6f7fb;
+  --bg-dark: #0f172a;
+
+  --card-light: #ffffff;
+  --card-dark: #122c56;
+
+  --text-light: #0f172a;
+  --text-dark: #e5e7eb;
+
+  --accent: rgb(8, 61, 183);
+  --accent-hover: #4f46e5;
+
+  --border-light: #e5e7eb;
+  --border-dark: #334155;
+
+  --radius: 14px;
+  --transition: all 0.25s ease;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* ------------------ */
+/* Global Styles */
+/* ------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+.app {
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* ------------------ */
+/* Themes */
+/* ------------------ */
+
+.app.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+.app.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+/* ------------------ */
+/* Header */
+/* ------------------ */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem 0;
+  position: relative;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+header button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+/* ------------------ */
+/* Buttons */
+/* ------------------ */
+
+button {
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+  background: var(--accent);
+  transition: var(--transition);
+}
+
+button:hover {
+  background: var(--accent-hover);
+}
+
+/* ------------------ */
+/* Search Bar */
+/* ------------------ */
+
+input {
+  width: 100%;
+  max-width: 450px;
+  margin: 1rem auto 2rem;
+  display: block;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  font-size: 1rem;
+  outline: none;
+}
+
+.app.dark input {
+  background: #020617;
+  color: var(--text-dark);
+  border-color: var(--border-dark);
+}
+
+/* ------------------ */
+/* Product Grid */
+/* ------------------ */
+
+.grid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+/* ------------------ */
+/* Product Card */
+/* ------------------ */
+
+.card {
+  background: var(--card-light);
+  padding: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+
+  box-shadow: 0 6px 18px rgba(220, 197, 197, 0.12);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.app.dark .card-img {
+  background: #020617;
+}
+
+.app.dark .card {
+  background: var(--card-dark);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.card-img {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f1f5f9; /* light background for empty space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .card-img img {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  font-size: 1.05rem;
+  margin: 0.4rem 0;
+}
+
+.card p {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+.card small {
+  color: gray;
+}
+
+/* ------------------ */
+/* Product Detail Panel */
+/* ------------------ */
+
+.detail {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 420px;
+  max-width: 95%;
+  background: var(--card-light);
+  padding: 1.5rem;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  animation: slideIn 0.3s ease;
+  z-index: 10;
+}
+
+.app.dark .detail {
+  background: var(--card-dark);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.detail img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.detail h2 {
+  margin-top: 0;
+}
+
+.detail p {
+  margin: 0.5rem 0;
+}
+
+/* Close Button */
+.detail button {
+  background: crimson;
+  margin-bottom: 1rem;
+}
+
+/* ------------------ */
+/* Loading & Text */
+/* ------------------ */
+
+p {
+  text-align: center;
+}
+
+/* ------------------ */
+/* Responsive */
+/* ------------------ */
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card img {
+    height: 140px;
+  }
+
+  input {
+    max-width: 100%;
+    pointer-events: auto;
+    position: relative;
+    z-index: 5;
+  }
+}
