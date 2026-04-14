@@ -5,7 +5,7 @@ function ThemeToggle() {
 
   return (
     <button className="theme-toggle" onClick={toggleTheme}>
-      Switch to {theme === "light" ? "Dark" : "Light"} Mode
+      {theme === "light" ? "🌙 Dark" : "🌞 Light"} Mode
     </button>
   );
 }
